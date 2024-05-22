@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const BarnaclesOPCUA = require('../lib/barnaclesopcua.js');
+
+
+let barnaclesOPCUA = new BarnaclesOPCUA({ printErrors: true });
+
+
+console.log('barnacles-opcua instantiation test');
