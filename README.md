@@ -7,7 +7,24 @@ OPC-UA interface for barnacles.
 Quick Start
 -----------
 
-Clone this repository and install dependencies with `npm install`.  Start the OPC-UA server with `npm start` and connect an OPC-UA client on port 4343 and resource path /UA/ParetoAnywhere.
+Clone this repository and install dependencies with `npm install`.  Start the OPC-UA server with `npm start` and connect an OPC-UA client on port 4840 and resource path /UA/ParetoAnywhere.
+
+
+Simulated Data
+--------------
+
+The following simulated devices/sensors are supported for interface testing.
+
+### Sensor-Works BluVib
+
+Start __barnacles-opcua__ with the command `npm run sensorworks-bluvib` to simulate a [Sensor-Works BluVib](https://www.sensor-works.com/products/) industrial vibration sensor with `browseName = "5e4504b1071b/3"`, exposing the following variables:
+
+| browseName     | dataType       |
+|:---------------|:---------------|
+| temperature    | Double         |
+| accelerationsX | YArrayItemType |
+| accelerationsY | YArrayItemType |
+| accelerationsZ | YArrayItemType |
 
 
 License

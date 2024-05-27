@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+
+const opcua = require('node-opcua');
+const BarnaclesOPCUA = require('../lib/barnaclesopcua.js');
+
+
+let barnaclesOPCUA = new BarnaclesOPCUA({ printErrors: true });
+
+setTimeout(createDevice, 5000);
+
+// Create a simulated Sensor-Works BluVib device
+function createDevice() {
+  const device = barnaclesOPCUA.namespace.addObject({
+      organizedBy: barnaclesOPCUA.server.engine.addressSpace.rootFolder.objects,
+      browseName: "5e4504b1071b/3"
+  });
+
+  barnaclesOPCUA.namespace.addVariable({
+    componentOf: device,
+    nodeId: "ns=1;s=t",
+    browseName: "temperature",
+    minimumSamplingInterval: 1000,
+    dataType: "Double",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.Double,
+                                   value: 25 + (Math.random() * 5) });
+      }
+    }
+  });
+
+  barnaclesOPCUA.namespace.addVariable({
+    componentOf: device,
+    nodeId: "ns=1;s=x",
+    browseName: "accelerationsX",
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ 0.1, 0.2, 0.3, 0.4 ] });
+      }
+    }
+  });
+
+  barnaclesOPCUA.namespace.addVariable({
+    componentOf: device,
+    nodeId: "ns=1;s=y",
+    browseName: "accelerationsY",
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ -0.1, -0.2, -0.3, -0.4 ] });
+      }
+    }
+  });
+
+  barnaclesOPCUA.namespace.addVariable({
+    componentOf: device,
+    nodeId: "ns=1;s=z",
+    browseName: "accelerationsZ",
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ -1.1, -1.0, -0.9, -1.0 ] });
+      }
+    }
+  });
+}
+
+
+console.log('barnacles-opcua instantiation test');
