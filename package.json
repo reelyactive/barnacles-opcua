@@ -11,20 +11,21 @@
     "IoT",
     "OPC-UA"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "node": ">=14.0.0"
   },
   "main": "./lib/barnaclesopcua.js",
   "scripts": {
-    "start": "node bin/barnacles-opcua"
+    "start": "node bin/barnacles-opcua",
+    "sensorworks-bluvib": "node bin/barnacles-opcua-sensorworks-bluvib"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/barnacles-opcua.git"
   },
   "dependencies": {
-    "node-opcua-server": "^2.124.0"
+    "node-opcua": "^2.124.0"
   },
   "devDependencies": {},
   "bugs": {
