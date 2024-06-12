@@ -21,10 +21,10 @@ Start __barnacles-opcua__ with the command `npm run sensorworks-bluvib` to simul
 
 | browseName     | dataType       |
 |:---------------|:---------------|
-| temperature    | Double         |
-| accelerationsX | YArrayItemType |
-| accelerationsY | YArrayItemType |
-| accelerationsZ | YArrayItemType |
+| Temperature    | AnalogDataItem |
+| accelerationsX | YArrayItem     |
+| accelerationsY | YArrayItem     |
+| accelerationsZ | YArrayItem     |
 
 
 License
