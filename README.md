@@ -36,7 +36,7 @@ After installing [opcua-commander](https://github.com/node-opcua/opcua-commander
 
     opcua-commander -e opc.tcp://localhost:4840
 
-Use the arrow keys and the t / l / i / c / u / s / a keys to navigate through the CLI interface.
+Use the arrow keys and the t / l / i / c / u / s / a keys to navigate through the CLI interface, and use the x key to close.
 
 
 License
