@@ -27,6 +27,18 @@ Start __barnacles-opcua__ with the command `npm run sensorworks-bluvib` to simul
 | accelerationsZ | YArrayItem     |
 
 
+Observing Data with opcua-commander
+-----------------------------------
+
+The [opcua-commander](https://github.com/node-opcua/opcua-commander) CLI, based on the same [node-opcua](https://github.com/node-opcua/node-opcua) open source package used by __barnacles-opcua__, provides a simple means of browsing and monitoring the OPC-UA data.
+
+After installing [opcua-commander](https://github.com/node-opcua/opcua-commander), open a terminal and browse to the __barnacles-opcua__ server with the following command:
+
+    opcua-commander -e opc.tcp://localhost:4840
+
+Use the arrow keys and the t / l / i / c / u / s / a keys to navigate through the CLI interface.
+
+
 License
 -------
 
