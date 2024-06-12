@@ -15,6 +15,89 @@ function createDevice() {
       browseName: "5e4504b1071b/3"
   });
 
+  barnaclesOPCUA.namespace.addAnalogDataItem({
+    componentOf: device,
+    browseName: "Temperature",
+    engineeringUnits: opcua.standardUnits.degree_Celsius,
+    engineeringUnitsRange: { low: -40, high: 125 },
+    minimumSamplingInterval: 1000,
+    dataType: "Double",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.Double,
+                                   value: 25 + (Math.random() * 5) });
+      }
+    }
+  });
+
+/* ---------------------------------------------------------------------------
+   xAxisDefinition throws error
+
+  barnaclesOPCUA.namespace.addYArrayItem({
+    componentOf: device,
+    browseName: "AccelerationsX",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
+    xAxisDefinition: {
+      engineeringUnits: opcua.standardUnits.microsecond,
+      engineeringUnitsRange: { low: 0, high: 10000 },
+      axisScaleType: opcua.EnumAxisScale.Linear
+    },
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ 0.1, 0.2, 0.3, 0.4 ] });
+      }
+    }
+  });
+
+  barnaclesOPCUA.namespace.addYArrayItem({
+    componentOf: device,
+    browseName: "AccelerationsY",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
+    xAxisDefinition: {
+      engineeringUnits: opcua.standardUnits.microsecond,
+      engineeringUnitsRange: { low: 0, high: 10000 },
+      axisScaleType: opcua.EnumAxisScale.Linear
+    },
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ -0.1, -0.2, -0.3, -0.4 ] });
+      }
+    }
+  });
+
+  barnaclesOPCUA.namespace.addYArrayItem({
+    componentOf: device,
+    browseName: "AccelerationsZ",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
+    xAxisDefinition: {
+      engineeringUnits: opcua.standardUnits.microsecond,
+      engineeringUnitsRange: { low: 0, high: 10000 },
+      axisScaleType: opcua.EnumAxisScale.Linear
+    },
+    minimumSamplingInterval: 1000,
+    dataType: "YArrayItemType",
+    value: {
+      get: function() {
+        return new opcua.Variant({ dataType: opcua.DataType.YArrayItemType,
+                                   value: [ -1.1, -1.0, -0.9, -1.0 ] });
+      }
+    }
+  });
+
+   -------------------------------------------------------------------------- */
+
   barnaclesOPCUA.namespace.addVariable({
     componentOf: device,
     nodeId: "ns=1;s=t",
@@ -33,6 +116,9 @@ function createDevice() {
     componentOf: device,
     nodeId: "ns=1;s=x",
     browseName: "accelerationsX",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
     minimumSamplingInterval: 1000,
     dataType: "YArrayItemType",
     value: {
@@ -47,6 +133,9 @@ function createDevice() {
     componentOf: device,
     nodeId: "ns=1;s=y",
     browseName: "accelerationsY",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
     minimumSamplingInterval: 1000,
     dataType: "YArrayItemType",
     value: {
@@ -61,6 +150,9 @@ function createDevice() {
     componentOf: device,
     nodeId: "ns=1;s=z",
     browseName: "accelerationsZ",
+    engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
+    engineeringUnitsRange: { low: -100, high: 100 },
+    axisScaleType: opcua.EnumAxisScale.Linear,
     minimumSamplingInterval: 1000,
     dataType: "YArrayItemType",
     value: {
