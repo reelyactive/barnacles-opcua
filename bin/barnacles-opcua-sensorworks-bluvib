@@ -100,20 +100,6 @@ function createDevice() {
 
   barnaclesOPCUA.namespace.addVariable({
     componentOf: device,
-    nodeId: "ns=1;s=t",
-    browseName: "temperature",
-    minimumSamplingInterval: 1000,
-    dataType: "Double",
-    value: {
-      get: function() {
-        return new opcua.Variant({ dataType: opcua.DataType.Double,
-                                   value: 25 + (Math.random() * 5) });
-      }
-    }
-  });
-
-  barnaclesOPCUA.namespace.addVariable({
-    componentOf: device,
     nodeId: "ns=1;s=x",
     browseName: "accelerationsX",
     engineeringUnits: opcua.standardUnits.standard_acceleration_of_free_fall,
