@@ -30,27 +30,23 @@ function createDevice() {
     }
   });
 
-/* ----- Uncomment when addYArrayItem() can be called successfully -----
-
   barnaclesOPCUA.namespace.addYArrayItem({
     componentOf: device,
     browseName: "AccelerationsX",
     engineeringUnits: opcua.standardUnits.metre_per_second_squared,
     engineeringUnitsRange: { low: -100, high: 100 },
-    axisScaleType: opcua.EnumAxisScale.Linear,
+    axisScaleType: "Linear",
     xAxisDefinition: {
       engineeringUnits: opcua.standardUnits.microsecond,
       engineeringUnitsRange: { low: 0, high: 10000 },
-      axisScaleType: opcua.EnumAxisScale.Linear
+      axisScaleType: opcua.EnumAxisScale.Linear,
+      axisSteps: []
     },
-    minimumSamplingInterval: 1000,
-    dataType: "YArrayItemType",
-    value: {
-      get: function() {
-        return new opcua.Variant({ dataType: opcua.DataType.Double,
-                                   value: [ 0.1, 0.2, 0.3, 0.4 ] });
-      }
-    }
+    dataType: opcua.DataType.Double,
+    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
+                               dataType: opcua.DataType.Double,
+                               value: Array.from({ length: 1024 },
+                                                 () => Math.random() - 0.5) })
   });
 
   barnaclesOPCUA.namespace.addYArrayItem({
@@ -58,20 +54,18 @@ function createDevice() {
     browseName: "AccelerationsY",
     engineeringUnits: opcua.standardUnits.metre_per_second_squared,
     engineeringUnitsRange: { low: -100, high: 100 },
-    axisScaleType: opcua.EnumAxisScale.Linear,
+    axisScaleType: "Linear",
     xAxisDefinition: {
       engineeringUnits: opcua.standardUnits.microsecond,
       engineeringUnitsRange: { low: 0, high: 10000 },
-      axisScaleType: opcua.EnumAxisScale.Linear
+      axisScaleType: opcua.EnumAxisScale.Linear,
+      axisSteps: []
     },
-    minimumSamplingInterval: 1000,
-    dataType: "YArrayItemType",
-    value: {
-      get: function() {
-        return new opcua.Variant({ dataType: opcua.DataType.Double,
-                                   value: [ -0.1, -0.2, -0.3, -0.4 ] });
-      }
-    }
+    dataType: opcua.DataType.Double,
+    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
+                               dataType: opcua.DataType.Double,
+                               value: Array.from({ length: 1024 },
+                                                 () => Math.random() - 0.5) })
   });
 
   barnaclesOPCUA.namespace.addYArrayItem({
@@ -79,23 +73,19 @@ function createDevice() {
     browseName: "AccelerationsZ",
     engineeringUnits: opcua.standardUnits.metre_per_second_squared,
     engineeringUnitsRange: { low: -100, high: 100 },
-    axisScaleType: opcua.EnumAxisScale.Linear,
+    axisScaleType: "Linear",
     xAxisDefinition: {
       engineeringUnits: opcua.standardUnits.microsecond,
       engineeringUnitsRange: { low: 0, high: 10000 },
-      axisScaleType: opcua.EnumAxisScale.Linear
+      axisScaleType: opcua.EnumAxisScale.Linear,
+      axisSteps: []
     },
-    minimumSamplingInterval: 1000,
-    dataType: "YArrayItemType",
-    value: {
-      get: function() {
-        return new opcua.Variant({ dataType: opcua.DataType.Double,
-                                   value: [ -1.1, -1.0, -0.9, -1.0 ] });
-      }
-    }
+    dataType: opcua.DataType.Double,
+    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
+                               dataType: opcua.DataType.Double,
+                               value: Array.from({ length: 1024 },
+                                                 () => Math.random() - 0.5) })
   });
-
-  ----- Uncomment when addYArrayItem() can be called successfully ----- */
 
 }
 
