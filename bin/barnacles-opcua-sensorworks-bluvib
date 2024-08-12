@@ -3,87 +3,30 @@
 const opcua = require('node-opcua');
 const BarnaclesOPCUA = require('../lib/barnaclesopcua.js');
 
+const INITIAL_HOLDOFF_MILLISECONDS = 5000;
+const UPDATE_PERIOD_MILLISECONDS = 60000;
+
 
 let barnaclesOPCUA = new BarnaclesOPCUA({ printErrors: true });
+setTimeout(generateSensorData, INITIAL_HOLDOFF_MILLISECONDS);
 
-setTimeout(createDevice, 5000);
 
-// Create a simulated Sensor-Works BluVib device
-function createDevice() {
-  const device = barnaclesOPCUA.namespace.addObject({
-      organizedBy: barnaclesOPCUA.server.engine.addressSpace.rootFolder.objects,
-      browseName: "5e4504b1071b/3"
-  });
+function generateSensorData() {
+  let dynamb = {
+    deviceId: "5e4504b1071b",
+    deviceIdType: 3,
+    temperature: 21 + (Math.random() * 10),
+    accelerationSamplingRate: 25600,
+    accelerationTimeSeries: [
+      Array.from({ length: 64 }, () => Math.random() + 0.5),
+      Array.from({ length: 64 }, () => Math.random() - 0.5),
+      Array.from({ length: 64 }, () => Math.random() - 0.5)
+    ],
+    timestamp: Date.now()
+  };
 
-  barnaclesOPCUA.namespace.addAnalogDataItem({
-    componentOf: device,
-    browseName: "Temperature",
-    engineeringUnits: opcua.standardUnits.degree_celsius,
-    engineeringUnitsRange: { low: -40, high: 125 },
-    minimumSamplingInterval: 1000,
-    dataType: "Double",
-    value: {
-      get: function() {
-        return new opcua.Variant({ dataType: opcua.DataType.Double,
-                                   value: 25 + (Math.random() * 5) });
-      }
-    }
-  });
-
-  barnaclesOPCUA.namespace.addYArrayItem({
-    componentOf: device,
-    browseName: "AccelerationsX",
-    engineeringUnits: opcua.standardUnits.metre_per_second_squared,
-    engineeringUnitsRange: { low: -64, high: 64 },
-    axisScaleType: "Linear",
-    xAxisDefinition: {
-      engineeringUnits: opcua.standardUnits.microsecond,
-      euRange: { low: 0, high: 2520 },
-      axisScaleType: opcua.EnumAxisScale.Linear
-    },
-    dataType: opcua.DataType.Double,
-    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
-                               dataType: opcua.DataType.Double,
-                               value: Float64Array.from({ length: 64 },
-                                                 () => Math.random() - 0.5) })
-  });
-
-  barnaclesOPCUA.namespace.addYArrayItem({
-    componentOf: device,
-    browseName: "AccelerationsY",
-    engineeringUnits: opcua.standardUnits.metre_per_second_squared,
-    engineeringUnitsRange: { low: -64, high: 64 },
-    axisScaleType: "Linear",
-    xAxisDefinition: {
-      engineeringUnits: opcua.standardUnits.microsecond,
-      euRange: { low: 0, high: 2520 },
-      axisScaleType: opcua.EnumAxisScale.Linear
-    },
-    dataType: opcua.DataType.Double,
-    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
-                               dataType: opcua.DataType.Double,
-                               value: Float64Array.from({ length: 64 },
-                                                 () => Math.random() - 0.5) })
-  });
-
-  barnaclesOPCUA.namespace.addYArrayItem({
-    componentOf: device,
-    browseName: "AccelerationsZ",
-    engineeringUnits: opcua.standardUnits.metre_per_second_squared,
-    engineeringUnitsRange: { low: -64, high: 64 },
-    axisScaleType: "Linear",
-    xAxisDefinition: {
-      engineeringUnits: opcua.standardUnits.microsecond,
-      euRange: { low: 0, high: 2520 },
-      axisScaleType: opcua.EnumAxisScale.Linear
-    },
-    dataType: opcua.DataType.Double,
-    value: new opcua.Variant({ arrayType: opcua.VariantArrayType.Array,
-                               dataType: opcua.DataType.Double,
-                               value: Float64Array.from({ length: 64 },
-                                                 () => Math.random() - 0.5) })
-  });
-
+  barnaclesOPCUA.handleEvent('dynamb', dynamb);
+  setTimeout(generateSensorData, UPDATE_PERIOD_MILLISECONDS);
 }
 
 
