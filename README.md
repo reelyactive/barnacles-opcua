@@ -16,6 +16,21 @@ Quick Start
 Clone this repository and install dependencies with `npm install`.  Start the OPC-UA server with `npm start` and connect an OPC-UA client on port 4840 and resource path /UA/ParetoAnywhere.
 
 
+Supported Properties
+--------------------
+
+__barnacles-opcua__ currently supports the following properties:
+
+| OPC UA browseName       | OPC UA dataType | dynamb property        |
+|:------------------------|:----------------|:-----------------------|
+| Temperature             | AnalogDataItem  | temperature            |
+| AccelerationTimeSeriesX | YArrayItem      | accelerationTimeSeries |
+| AccelerationTimeSeriesY | YArrayItem      | accelerationTimeSeries |
+| AccelerationTimeSeriesZ | YArrayItem      | accelerationTimeSeries |
+
+Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.
+
+
 Simulated Data
 --------------
 
@@ -25,12 +40,12 @@ The following simulated devices/sensors are supported for interface testing.
 
 Start __barnacles-opcua__ with the command `npm run sensorworks-bluvib` to simulate a [Sensor-Works BluVib](https://www.sensor-works.com/products/) industrial vibration sensor with `browseName = "5e4504b1071b/3"`, exposing the following variables:
 
-| browseName              | dataType       |
-|:------------------------|:---------------|
-| Temperature             | AnalogDataItem |
-| AccelerationTimeSeriesX | YArrayItem     |
-| AccelerationTimeSeriesY | YArrayItem     |
-| AccelerationTimeSeriesZ | YArrayItem     |
+| OPC UA browseName       | OPC UA dataType |
+|:------------------------|:----------------|
+| Temperature             | AnalogDataItem  |
+| AccelerationTimeSeriesX | YArrayItem      |
+| AccelerationTimeSeriesY | YArrayItem      |
+| AccelerationTimeSeriesZ | YArrayItem      |
 
 
 Observing Data with opcua-commander
