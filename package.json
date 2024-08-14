@@ -11,9 +11,9 @@
     "IoT",
     "OPC-UA"
   ],
-  "version": "0.2.0",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "main": "./lib/barnaclesopcua.js",
   "scripts": {
