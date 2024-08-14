@@ -5,7 +5,7 @@ __barnacles-opcua__ is an OPC UA server of data from ambient wireless sensors.
 
 ![Overview of barnacles-opcua](https://reelyactive.github.io/barnacles-opcua/images/overview.png)
 
-__barnacles-opcua__ ingests a real-time stream of _dynamb_ objects from -[barnacles](https://github.com/reelyactive/barnacles/), converting their properties into standard OPC UA format.  [reelyActive](https://www.reelyactive.com) is an [OPC UA logo member](https://opcfoundation.org/members/view/7804).
+__barnacles-opcua__ ingests a real-time stream of _dynamb_ objects from [barnacles](https://github.com/reelyactive/barnacles/), converting their properties into standard OPC UA format.  [reelyActive](https://www.reelyactive.com) is an [OPC UA logo member](https://opcfoundation.org/members/view/7804).
 
 __barnacles-opcua__ is a lightweight [Node.js package](https://www.npmjs.com/package/barnacles-opcua) that can run on resource-constrained edge devices as well as on powerful cloud servers and anything in between.
 
