@@ -45,6 +45,12 @@ After installing [opcua-commander](https://github.com/node-opcua/opcua-commander
 Use the arrow keys and the t / l / i / c / u / s / a keys to navigate through the CLI interface, and use the x key to close.
 
 
+Observing Data with UaExpert
+----------------------------
+
+Unified Automation offers [UaExpert](https://www.unified-automation.com/products/development-tools/uaexpert.html), a full-featured Windows/Linux OPC UA client, for [free download](https://www.unified-automation.com/downloads/opc-ua-clients.html), with registration.
+
+
 Contributing
 ------------
 
