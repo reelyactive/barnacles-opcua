@@ -70,6 +70,12 @@ Observing Data with UaExpert
 Unified Automation offers [UaExpert](https://www.unified-automation.com/products/development-tools/uaexpert.html), a full-featured Windows/Linux OPC UA client, for [free download](https://www.unified-automation.com/downloads/opc-ua-clients.html), with registration.
 
 
+Acknowledgements
+----------------
+
+This open source module is based on [Node-OPCUA](https://node-opcua.github.io/) maintained by [Sterfive](https://www.sterfive.com) which we invite you to consider sponsoring at [opencollective.com/node-opcua](https://opencollective.com/node-opcua).
+
+
 Contributing
 ------------
 
