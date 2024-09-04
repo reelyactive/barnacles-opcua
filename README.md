@@ -13,7 +13,11 @@ __barnacles-opcua__ is a lightweight [Node.js package](https://www.npmjs.com/pac
 Quick Start
 -----------
 
-Clone this repository and install dependencies with `npm install`.  Start the OPC-UA server with `npm start` and connect an OPC-UA client on port 4840 and resource path /UA/ParetoAnywhere.
+Clone this repository, then from its root folder, install dependencies with `npm install`.  Start the OPC-UA server with the following command:
+
+    npm start
+
+and connect an OPC-UA client (see examples below) on port __4840__ and resource path __/UA/ParetoAnywhere__.  Note that no device data will be available without a source of [dynamb](https://reelyactive.github.io/diy/cheatsheet/#dynamb) data, for example from [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
 
 Supported Properties
