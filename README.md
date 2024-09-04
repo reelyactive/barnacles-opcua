@@ -73,7 +73,7 @@ Unified Automation offers [UaExpert](https://www.unified-automation.com/products
 Acknowledgements
 ----------------
 
-This open source module is based on [Node-OPCUA](https://node-opcua.github.io/) maintained by [Sterfive](https://www.sterfive.com) which we invite you to consider sponsoring at [opencollective.com/node-opcua](https://opencollective.com/node-opcua).
+__barnacles-opcua__ is based on the [Node-OPCUA](https://node-opcua.github.io/) open source project, maintained by [Sterfive](https://www.sterfive.com), which we invite you to consider sponsoring at [opencollective.com/node-opcua](https://opencollective.com/node-opcua).
 
 
 Contributing
