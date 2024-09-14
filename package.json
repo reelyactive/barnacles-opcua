@@ -5,13 +5,13 @@
     "name": "reelyActive",
     "email": "info@reelyactive.com"
   },
-  "description": "OPC-UA interface for barnacles.  We believe in an open Internet of Things.",
+  "description": "OPC UA server of IoT data from ambient wireless sensors.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
     "IoT",
     "OPC-UA"
   ],
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "node": ">=18.0.0"
   },
