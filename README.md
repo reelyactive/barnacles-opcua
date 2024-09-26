@@ -103,6 +103,16 @@ Observing Data with UaExpert
 Unified Automation offers [UaExpert](https://www.unified-automation.com/products/development-tools/uaexpert.html), a full-featured Windows/Linux OPC UA client, for [free download](https://www.unified-automation.com/downloads/opc-ua-clients.html), with registration.
 
 
+Config Files
+------------
+
+The __/config__ folder accepts the following run-time configuration files:
+- __certificate.pem__ (security certificate)
+- __key.pem__ (private key)
+
+Alternatively, these can be specified in the [Options](#Options).
+
+
 Options
 -------
 
