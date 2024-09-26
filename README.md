@@ -108,9 +108,11 @@ Options
 
 __barnacles-opcua__ supports the following options:
 
-| Property    | Default                    | Description                      | 
-|:------------|:---------------------------|:---------------------------------|
-| port        | 4840                       | OPC UA Server port               |
+| Property        | Default                    | Description                   | 
+|:----------------|:---------------------------|:------------------------------|
+| port            | 4840                       | OPC UA Server port            |
+| certificateFile | config/certificate.pem     | Path to optional certificate  |
+| privateKeyFile  | config/key.pem             | Path to optional key          |
 
 
 Acknowledgements
