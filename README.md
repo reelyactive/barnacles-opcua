@@ -51,7 +51,9 @@ __barnacles-opcua__ currently supports the following properties:
 | AccelerationTimeSeriesY | YArrayItem      | accelerationTimeSeries |
 | AccelerationTimeSeriesZ | YArrayItem      | accelerationTimeSeries |
 
-Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.
+Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.  Helpful [node-opcua API documentation](https://node-opcua.github.io/api_doc/) references for adding items:
+- [AddAnalogDataItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddAnalogDataItemOptions.html)
+- [AddYArrayItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddYArrayItemOptions.html)
 
 
 Quick Start
