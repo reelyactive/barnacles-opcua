@@ -117,6 +117,28 @@ The __/config__ folder accepts the following run-time configuration files:
 Alternatively, these can be specified in the [Options](#Options).
 
 
+Security Certificate
+--------------------
+
+__barnacles-opcua__ does _not_, by default, implement a secure OPC-UA server.  This facilitates testing in a local sandbox environment.  In any other environment, the use of an [Application Instance Certificate](https://reference.opcfoundation.org/Core/Part6/docs/6.2.2) is essential for secure operation.
+
+When creating the security certificate, for example using OpenSSL, ensure that the following properties are included and correctly entered for compliance with the OPC UA specification.
+
+| Property             | Example                      | Description            | 
+|:---------------------|:-----------------------------|:-----------------------|
+| subjectAltName       | urn:machine:NodeOPCUA-Server | Application URI        |
+| commonName (CN)      | Pareto Anywhere              | Name of the product    |
+| organizationName (O) | Your organisation            | Operator of server     |
+
+The Node-OPCUA server will output warnings when a certificate is present but not compliant, for example:
+
+    "The certificate subjectAltName uniformResourceIdentifier is missing."
+    "Please regenerate a specific certificate with a uniformResourceIdentifier that matches your server applicationUri"
+    "applicationUri  = urn:machine:NodeOPCUA-Server"
+
+It is up to the user to generate and validate compliant security certificates.
+
+
 Options
 -------
 
