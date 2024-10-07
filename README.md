@@ -139,6 +139,80 @@ The Node-OPCUA server will output warnings when a certificate is present but not
 It is up to the user to generate and validate compliant security certificates.
 
 
+Creating a Self-Signed Certificate for OPC-UA using OpenSSL
+-----------------------------------------------------------
+
+In a development environment, it is common for __barnacles-opcua__ to run on the same local network as OPC UA client.  A self-signed server certificate (for __barnacles-opcua__) and the CA certificate can be generated with OpenSSL using the following procedure:
+
+### Create a server.cnf file
+
+```
+[req]
+default_bits  = 2048
+distinguished_name = req_distinguished_name
+req_extensions = req_ext
+x509_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+countryName = CA
+stateOrProvinceName = QC
+localityName = Montreal
+organizationName = reelyActive
+commonName = Pareto Anywhere
+domainComponent = machine
+
+[req_ext]
+subjectAltName = @alt_names
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth, clientAuth
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+URI.1 = urn:machine:NodeOPCUA-Server
+```
+
+Update the domainComponent and URI.1 fields, replacing "machine" with the network name of the machine running __barnacles-opcua__.  Optionally update the other fields of the distinguished name to reflect the organisation/software using __barnacles-opcua__.
+
+### Create a CA.cnf file
+
+```
+[ req ]
+prompt = no
+distinguished_name = req_distinguished_name
+
+[ req_distinguished_name ]
+C = CA
+ST = QC
+L = Montreal
+O = reelyActive
+OU = Develop
+CN = Pareto Anywhere
+```
+
+Optionally update the fields of the distinguished name to reflect the organisation/software using __barnacles-opcua__.
+
+### Create the .pem files using OpenSSL
+
+First, generate a CA private key & certificate:
+
+    openssl req -nodes -new -x509 -keyout CA_key.pem -out CA_certificate.pem -days 1825 -config CA.cnf
+
+Second, generate the web server's secret key & CSR:
+
+    openssl req -sha256 -nodes -newkey rsa:2048 -keyout key.pem -out server.csr -config server.cnf
+
+Third, create the web server's certificate, signing it with its own certificate authority:
+
+    openssl x509 -req -days 398 -in server.csr -CA CA_certificate.pem -CAkey CA_key.pem -CAcreateserial -out certificate.pem -extensions req_ext -extfile server.cnf
+
+### Assign the certificates
+
+Configure __barnacles-opcua__ by copying the `certificate.pem` and `key.pem` files to the /config folder, as described in the [Config Files](#standalone-secure-websockets) section above.
+
+
 Options
 -------
 
