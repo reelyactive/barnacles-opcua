@@ -50,6 +50,9 @@ __barnacles-opcua__ currently supports the following properties:
 | AccelerationTimeSeriesX | YArrayItem      | accelerationTimeSeries |
 | AccelerationTimeSeriesY | YArrayItem      | accelerationTimeSeries |
 | AccelerationTimeSeriesZ | YArrayItem      | accelerationTimeSeries |
+| VelocityOverallX        | AnalogDataItem  | velocityOverall        |
+| VelocityOverallY        | AnalogDataItem  | velocityOverall        |
+| VelocityOverallZ        | AnalogDataItem  | velocityOverall        |
 
 Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.  Helpful [node-opcua API documentation](https://node-opcua.github.io/api_doc/) references for adding items:
 - [AddAnalogDataItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddAnalogDataItemOptions.html)
@@ -87,6 +90,9 @@ Simulated sensor `browseName = "5e4504b1071b/3"` will expose the following varia
 | AccelerationTimeSeriesX | YArrayItem      |
 | AccelerationTimeSeriesY | YArrayItem      |
 | AccelerationTimeSeriesZ | YArrayItem      |
+| VelocityOverallX        | AnalogDataItem  |
+| VelocityOverallY        | AnalogDataItem  |
+| VelocityOverallZ        | AnalogDataItem  |
 
 
 Observing Data with opcua-commander

@@ -22,6 +22,10 @@ function generateSensorData() {
       Array.from({ length: 64 }, () => Math.random() - 0.5),
       Array.from({ length: 64 }, () => Math.random() - 0.5)
     ],
+    velocityOverall: [
+      Math.random() / 100,
+      Math.random() / 100,
+      Math.random() / 100 ],
     timestamp: Date.now()
   };
 
