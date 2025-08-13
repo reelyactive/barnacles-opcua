@@ -42,17 +42,26 @@ pa.barnacles.addInterface(BarnaclesOPCUA, BARNACLES_OPCUA_OPTIONS);
 Supported Properties
 --------------------
 
-__barnacles-opcua__ currently supports the following properties:
+__barnacles-opcua__ currently supports the following properties, in alphabetical order:
 
-| OPC UA browseName       | OPC UA dataType | dynamb property        |
-|:------------------------|:----------------|:-----------------------|
-| Temperature             | AnalogDataItem  | temperature            |
-| AccelerationTimeSeriesX | YArrayItem      | accelerationTimeSeries |
-| AccelerationTimeSeriesY | YArrayItem      | accelerationTimeSeries |
-| AccelerationTimeSeriesZ | YArrayItem      | accelerationTimeSeries |
-| VelocityOverallX        | AnalogDataItem  | velocityOverall        |
-| VelocityOverallY        | AnalogDataItem  | velocityOverall        |
-| VelocityOverallZ        | AnalogDataItem  | velocityOverall        |
+| OPC UA browseName          | OPC UA dataType | dynamb property            |
+|:---------------------------|:----------------|:---------------------------|
+| AccelerationTimeSeriesX    | YArrayItem      | accelerationTimeSeries     |
+| AccelerationTimeSeriesY    | YArrayItem      | accelerationTimeSeries     |
+| AccelerationTimeSeriesZ    | YArrayItem      | accelerationTimeSeries     |
+| CarbonDioxideConcentration | AnalogDataItem  | carbonDioxideConcentration |
+| Illuminance                | AnalogDataItem  | illuminance                |
+| PM1.0                      | AnalogDataItem  | pm1.0                      |
+| PM2.5                      | AnalogDataItem  | pm2.5                      |
+| PM10                       | AnalogDataItem  | pm10                       |
+| Pressure                   | AnalogDataItem  | pressure                   |
+| RelativeHumidity           | AnalogDataItem  | relativeHumidity           |
+| SoundPressure              | AnalogDataItem  | soundPressure              |
+| Temperature                | AnalogDataItem  | temperature                |
+| VelocityOverallX           | AnalogDataItem  | velocityOverall            |
+| VelocityOverallY           | AnalogDataItem  | velocityOverall            |
+| VelocityOverallZ           | AnalogDataItem  | velocityOverall            |
+| VolatileOrganicCompoundsConcentration | AnalogDataItem  | volatileOrganicCompundsConcentration |
 
 Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.  Helpful [node-opcua API documentation](https://node-opcua.github.io/api_doc/) references for adding items:
 - [AddAnalogDataItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddAnalogDataItemOptions.html)
@@ -75,6 +84,59 @@ Simulated Data
 --------------
 
 The following simulated devices/sensors are supported for interface testing.
+
+### EnOcean EMSIB
+
+To simulate an [EnOcean EMSIB](https://www.enocean.com/en/product/stm-550-kit/) multisensor, start __barnacles-opcua__ with the following command:
+
+    npm run enocean-emsib
+
+Simulated sensor `browseName = "e500100e851b/3"` will expose the following variables:
+
+| OPC UA browseName | OPC UA dataType |
+|:------------------|:----------------|
+| Illuminance       | AnalogDataItem  |
+| RelativeHumidity  | AnalogDataItem  |
+| Temperature       | AnalogDataItem  |
+
+
+### HibouAir CO2 Noise Sensor
+
+To simulate a [HibouAir CO2 Noise](https://hibouair.com/air-quality-monitor-co2-noise-sensor.php) air quality sensor, start __barnacles-opcua__ with the following command:
+
+    npm run hibouair-co2noise
+
+Simulated sensor `browseName = "41b00a14c024/3"` will expose the following variables:
+
+| OPC UA browseName                     | OPC UA dataType |
+|:--------------------------------------|:----------------|
+| CarbonDioxideConcentration            | AnalogDataItem  |
+| Pressure                              | AnalogDataItem  |
+| RelativeHumidity                      | AnalogDataItem  |
+| SoundPressure                         | AnalogDataItem  |
+| Temperature                           | AnalogDataItem  |
+| VolatileOrganicCompoundsConcentration | AnalogDataItem  |
+
+
+### HibouAir PM Sensor
+
+To simulate a [HibouAir PM](https://hibouair.com/specifications-air-quality-monitor-pm-sensor.php) air quality sensor, start __barnacles-opcua__ with the following command:
+
+    npm run hibouair-pm
+
+Simulated sensor `browseName = "41b00a145977/3"` will expose the following variables:
+
+| OPC UA browseName                     | OPC UA dataType |
+|:--------------------------------------|:----------------|
+| Illuminance                           | AnalogDataItem  |
+| PM1.0                                 | AnalogDataItem  |
+| PM2.5                                 | AnalogDataItem  |
+| PM10                                  | AnalogDataItem  |
+| Pressure                              | AnalogDataItem  |
+| RelativeHumidity                      | AnalogDataItem  |
+| Temperature                           | AnalogDataItem  |
+| VolatileOrganicCompoundsConcentration | AnalogDataItem  |
+
 
 ### Sensor-Works BluVib
 

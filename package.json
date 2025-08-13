@@ -18,6 +18,9 @@
   "main": "./lib/barnaclesopcua.js",
   "scripts": {
     "start": "node bin/barnacles-opcua",
+    "enocean-emsib": "node bin/barnacles-opcua-enocean-emsib",
+    "hibouair-co2noise": "node bin/barnacles-opcua-hibouair-co2noise",
+    "hibouair-pm": "node bin/barnacles-opcua-hibouair-pm",
     "sensorworks-bluvib": "node bin/barnacles-opcua-sensorworks-bluvib"
   },
   "repository": {
@@ -25,7 +28,7 @@
     "url": "https://github.com/reelyactive/barnacles-opcua.git"
   },
   "dependencies": {
-    "node-opcua": "^2.149.0"
+    "node-opcua": "^2.156.0"
   },
   "devDependencies": {},
   "bugs": {

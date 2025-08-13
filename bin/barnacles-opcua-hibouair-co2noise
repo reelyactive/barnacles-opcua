@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const opcua = require('node-opcua');
+const BarnaclesOPCUA = require('../lib/barnaclesopcua.js');
+
+const INITIAL_HOLDOFF_MILLISECONDS = 5000;
+const UPDATE_PERIOD_MILLISECONDS = 60000;
+
+
+let barnaclesOPCUA = new BarnaclesOPCUA({ printErrors: true });
+setTimeout(generateSensorData, INITIAL_HOLDOFF_MILLISECONDS);
+
+
+function generateSensorData() {
+  let dynamb = {
+    deviceId: "41b00a145977",
+    deviceIdType: 3,
+    carbonDioxideConcentration: 400 + Math.round(Math.random() * 1600),
+    pressure: 98000 + (Math.random() * 4000),
+    relativeHumidity: 30 + Math.round(Math.random() * 40),
+    soundPressure: 20 + Math.round(Math.random() * 80),
+    temperature: 21 + (Math.random() * 10),
+    timestamp: Date.now(),
+    volatileOrganicCompoundsConcentration: (Math.random() * 5)
+  };
+
+  barnaclesOPCUA.handleEvent('dynamb', dynamb);
+  setTimeout(generateSensorData, UPDATE_PERIOD_MILLISECONDS);
+}
+
+
+console.log('barnacles-opcua HibouAir CO2 Noise sensor simulator');
