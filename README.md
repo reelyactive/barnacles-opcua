@@ -51,6 +51,22 @@ __barnacles-opcua__ currently supports the following properties, in alphabetical
 | AccelerationTimeSeriesZ    | YArrayItem      | accelerationTimeSeries     |
 | CarbonDioxideConcentration | AnalogDataItem  | carbonDioxideConcentration |
 | Illuminance                | AnalogDataItem  | illuminance                |
+| IsButtonPressed            | Boolean         | isButtonPressed            |
+| IsButtonPressedCycle       | UInt32          | isButtonPressedCycle       |
+| IsContactDetected          | Boolean         | isContactDetected          |
+| IsContactDetectedCycle     | UInt32          | isContactDetectedCycle     |
+| IsInputDetected            | Boolean         | isInputDetected            |
+| IsInputDetectedCycle       | UInt32          | isInputDetectedCycle       |
+| IsLightDetected            | Boolean         | isLightDetected            |
+| IsLightDetectedCycle       | UInt32          | isLightDetectedCycle       |
+| IsLiquidDetected           | Boolean         | isLiquidDetected           |
+| IsLiquidDetectedCycle      | UInt32          | isLiquidDetectedCycle      |
+| IsMotionDetected           | Boolean         | isMotionDetected           |
+| IsMotionDetectedCycle      | UInt32          | isMotionDetectedCycle      |
+| IsOccupancyDetected        | Boolean         | isOccupancyDetected        |
+| IsOccupancyDetectedCycle   | UInt32          | isOccupancyDetectedCycle   |
+| IsTamperDetected           | Boolean         | isTamperDetected           |
+| IsTamperDetectedCycle      | UInt32          | isTamperDetectedCycle      |
 | PM1.0                      | AnalogDataItem  | pm1.0                      |
 | PM2.5                      | AnalogDataItem  | pm2.5                      |
 | PM10                       | AnalogDataItem  | pm10                       |
@@ -66,6 +82,7 @@ __barnacles-opcua__ currently supports the following properties, in alphabetical
 Additional [dynamb properties](https://reelyactive.github.io/diy/cheatsheet/#dynamb) will be added in future.  Helpful [node-opcua API documentation](https://node-opcua.github.io/api_doc/) references for adding items:
 - [AddAnalogDataItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddAnalogDataItemOptions.html)
 - [AddYArrayItemOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddYArrayItemOptions.html)
+- [AddVariableOptions](https://node-opcua.github.io/api_doc/2.132.0/interfaces/node_opcua.AddVariableOptions.html)
 
 
 OPC-UA Namespace and NodeIds
