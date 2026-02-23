@@ -90,7 +90,7 @@ OPC-UA Namespace and NodeIds
 
 __barnacles-opcua__ uses namespace index 1 `ns=1` and NodeIds are strings combining the deviceId, deviceIdType and OPC UA browse name of the property (see above), for example:
 
-    devices/bada55beac04/3/Temperature
+    ns=1;s=devices/bada55beac04/3/Temperature
 
 Each NodeId is therefore unique and consistent.  Note that up to v1.4.0 NodeIds were numeric and not necessarily consistent on restart.
 
